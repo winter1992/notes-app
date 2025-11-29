@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Вход</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <h1>Войти</h1>
+
+  <form method="post" action="{{ url_for('login') }}">
+    {{ form.hidden_tag() }}
+    <div>
+      {{ form.username.label }}<br>
+      {{ form.username(size=40, autocomplete="username") }}
+      {% if form.username.errors %}
+        <div style="color:red">{{ form.username.errors[0] }}</div>
+      {% endif %}
+    </div>
+
+    <div>
+      {{ form.password.label }}<br>
+      {{ form.password(size=40, autocomplete="current-password") }}
+      {% if form.password.errors %}
+        <div style="color:red">{{ form.password.errors[0] }}</div>
+      {% endif %}
+    </div>
+
+    <div>
+      {{ form.submit() }}
+    </div>
+  </form>
+
+  <p>Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+</body>
+</html>

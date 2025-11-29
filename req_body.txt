@@ -1,0 +1,1 @@
+username=admin&password=adminpass&csrf_token=Ijg0ZWNiODRhOGY2NDcyMzZkZDE4OGJlOWQ2NzIwODhjNjA4ZjZjY2Ii.aO30DQ.nsTFAVn5tanvNpxxdKYMg84vyas

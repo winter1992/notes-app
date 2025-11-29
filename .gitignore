@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Database
+*.db
+instance/
+
+# Environment variables
+.env
