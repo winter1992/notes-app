@@ -5,19 +5,19 @@ import subprocess
 
 app = Flask(__name__)
 
-# УЯЗВИМОСТЬ: Debug mode в production
-app.config['DEBUG'] = True
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: Debug mode пїЅ production
+app.config['DEBUG'] = False
 
-# УЯЗВИМОСТЬ: Слабый секретный ключ
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 app.config['SECRET_KEY'] = 'simple'
 
-# УЯЗВИМОСТЬ: Потенциально опасная десериализация
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 def load_data(data):
-    return pickle.loads(data)  # Опасно!
+    return pickle.loads(data)  # пїЅпїЅпїЅпїЅпїЅпїЅ!
 
-# УЯЗВИМОСТЬ: Потенциальная командна инъекция  
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  
 def run_command(cmd):
-    return subprocess.call(cmd, shell=True)  # Опасно!
+    return subprocess.call(cmd, shell=True)  # пїЅпїЅпїЅпїЅпїЅпїЅ!
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Еще один debug=True!
+    app.run(debug=True)  # пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ debug=True!
